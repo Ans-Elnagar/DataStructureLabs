@@ -1,5 +1,5 @@
 package calcPackage;
-public class Calculator implements CalculatorInterface {
+public class Calculator implements ICalculator {
 	public int add(int x, int y) {
 		return x+y;
 	}
