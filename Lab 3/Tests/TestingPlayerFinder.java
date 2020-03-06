@@ -16,7 +16,7 @@ class TestingPlayerFinder {
 						"VNDSD333",
 						"OINFD33X"};
 		Point[] points = find.findPlayers(photo, 3, 16);
-		Point[] rightPoints = {new Point(14,2),new Point(4,5),new Point(13,9)};
+		Point[] rightPoints = {new Point(4,5),new Point(13,9),new Point(14,2)};
 		assertArrayEquals(points,rightPoints);
 	}
 	@Test
@@ -32,7 +32,8 @@ class TestingPlayerFinder {
 				"4BR4Y4A444",
 				"4G4V4T4444"};
 		Point[] points = find.findPlayers(photo, 4, 16);
-		Point[] rightPoints = { new Point(5,4), new Point(16,3), new Point(3,8),  new Point(17,9), new Point(4,16), new Point(16,17)};
+		Point[] rightPoints = {new Point(3,8), new Point(4,16), new Point(5,4),
+							new Point(16,3), new Point(16,17), new Point(17,9)};
 		assertArrayEquals(points,rightPoints);
 	}
 	@Test
@@ -53,11 +54,11 @@ class TestingPlayerFinder {
 						"U88H8NI8CZB88B8",
 						"8PK8H8T8888TQR8"};
 		Point[] points = find.findPlayers(photo, 8, 9);
-		Point[] rightPoints = {new Point(3, 3), new Point(9, 2), new Point(18,3), new Point(27,2),
-				new Point(10,9), new Point(3, 10), new Point(18,11),new Point(8, 17),
-				new Point(24,15), new Point(29,16), new Point(1, 17), new Point(17,16),
-				 new Point(5, 21), new Point(22,20), new Point(12,23), new Point(3, 25),
-				 new Point(28,26), new Point(23,26),new Point(18,28)};
+		Point[] rightPoints = {new Point(1, 17), new Point(3, 3), new Point(3, 10),
+				new Point(3, 25), new Point(5, 21), new Point(8, 17),new Point(9, 2),
+				new Point(10,9),new Point(12,23),new Point(17,16),new Point(18,3),
+				new Point(18,11),new Point(18,28),new Point(22,20), new Point(23,26),
+				new Point(24,15), new Point(27,2),new Point(28,26),new Point(29,16),};
 		assertArrayEquals(points,rightPoints);
 	}
 	@Test

@@ -30,10 +30,7 @@ public class PlayersFinder implements IPlayersFinder {
 				}
 			}
 		}
-		Point[] newPoints = new Point[pointsCounter];
-		for (int i=0; i< pointsCounter; i++) {
-			newPoints[i] = points[i];
-		}
+		points = sortArrayAndChangeSize(points, pointsCounter);
 		// now we just need to return the photo to its original state
 		////////////////////
 		for (int i=0; i<height; i++) {
@@ -44,7 +41,7 @@ public class PlayersFinder implements IPlayersFinder {
 			}
 		}
 		///////////////////
-		return newPoints;
+		return points;
 	}
 	void go(String[] photo, int x, int y) {
 		 // using short circuit evaluation
@@ -68,5 +65,23 @@ public class PlayersFinder implements IPlayersFinder {
 			go(photo,x-1,y); // go left
 			go(photo,x,y-1); // go up
 		}
+	}
+	Point[] sortArrayAndChangeSize(Point[] arr, int size) { // insertion sort
+		Point[] newArr = new Point[size];
+		newArr[0] = arr[0];
+		int place = 0;
+		for (int i=1; i<size; i++) {
+			place = 0; // in case the right place is the first place
+			// So the loop will not get in the if
+			for(int j=i-1; j>=0; j--) {
+				if((newArr[j].x < arr[i].x) || (newArr[j].x == arr[i].x && newArr[j].y < arr[i].y)) {
+					place = j+1;
+					break;
+				}
+				newArr[j+1] = newArr[j];
+			}
+			newArr[place] = arr[i];
+		}
+		return newArr;
 	}
 }
